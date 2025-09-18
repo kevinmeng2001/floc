@@ -1,0 +1,46 @@
+# Local Paths
+# For flat dataset format, point to the directory that contains `images/` and `depthXX.txt`
+dataset_path: "/home/kevinmeng/workspace/mappedin/VPS/f3loc/data"
+dataset: "gibson_f"            # gibson_f | gibson_g (unused for flat format)
+ckpt_path: "./checkpoints"
+
+# Training
+batch_size: 6
+num_workers: 8
+max_epochs: 100
+num_sanity_val_steps: 0       # 0 disables Lightning sanity validation
+train_subset: 0               # 0=use full set
+val_subset: 0                 # 0=use full set
+
+# Model hyperparameters
+D: 128
+d_min: 0.1
+d_max: 15.0
+d_hyp: -0.2
+F_W: 0.5 # 3/8 for 108 degree, 0.5 for 90 degree
+lr: 0.001
+shape_loss_weight: null       # e.g., 0.1 to enable shape loss
+
+# Visualization / Logging
+use_clearml: True
+clearml_project: "F3Loc"
+clearml_task: "mono-train-flat"
+# ClearML dataset to fetch when use_clearml is true
+# This matches clearml/data_upload.py
+dataset_project: "FLoc"
+dataset_name: "airports_malls"
+
+# Flat dataset format knobs
+image_dir: "images"
+depth_suffix: "depth45"
+depth_file: "depth45.txt"
+val_ratio: 0.1
+split_seed: 42
+vis_samples: 5 
+
+# Checkpointing
+ckpt_monitor: "loss-valid"   # what to track: e.g., "loss-valid"
+ckpt_mode: "min"             # "min" for losses, "max" for metrics that increase
+ckpt_save_top_k: 3           # keep best K
+ckpt_save_last: false         # also keep last checkpoint
+ckpt_every_n_epochs: 0       # 0 disables periodic snapshots; set N to enable
