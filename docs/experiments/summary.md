@@ -62,52 +62,6 @@ Related: [[data/preprocessing.md]]
 
 [End with open questions: "Does FOV change require ray re-sampling? To investigate."]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-MetricTrain ValueVal ValueBaseline ComparisonDepth MAE0.12m0.18m-5% vs. paperPose Success85%78%+10% yaw stability
-[Embed plots via Markdown: <img src="/path/to/loss_curve.png" alt=""> or notebook links.]
-Analysis/What Went Wrong
-[Bullets for insights. E.g.,
-
-High variance in open spaces: Ray-attention smoothed local noise but over-generalized distant walls.
-Overfitting signal: Train/val gap widened after epoch 50—consider more dropout.
-]
-
-Improvements/Next Steps
-[Bullets with rationale. E.g.,
-
-Increase d_max to 20m for airport scales; test in next run.
-Ablate without semantic branch: Hypothesis—will hurt but clarify attention's role.
-Link to experiments/run_002.md for HPO on num_layers.
-]
-
-References/Artifacts
-
-[Paper section: F3Loc observation model]
-ClearML Artifacts: Model checkpoint, Ray plots
-Related: [[data/preprocessing.md]]
-
-[End with open questions: "Does FOV change require ray re-sampling? To investigate."]
-textFor notebooks (e.g., interactive understanding demos), use Jupyter with Markdown cells following this template, then export to `.md` for docs/.
-
 ### Approach to Documentation and Note Writing
 Approach documentation as an **iterative, reflective habit** integrated into your workflow—not a post-hoc chore. This builds understanding, tracks thinking, and proves progress (e.g., for stakeholders). Key principles:
 - **Timeliness**: Write during/after each session (e.g., 10-15 min post-experiment). Use voice-to-text or quick bullets if time-constrained.
